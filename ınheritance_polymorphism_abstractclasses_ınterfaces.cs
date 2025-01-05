@@ -12,7 +12,7 @@ namespace ConsoleApp11
 
     Temel Kavramlar
     Base Class (Ana Sınıf): Özelliklerini ve metotlarını diğer sınıflara devreden sınıftır.
-    Derived Class (Türetilmiş Sınıf): Başka bir sınıfın özelliklerini ve metotlarını devralan sınıftır.
+    Derived Class (Türetilmiş Sınıf): Başka bir sınıfın özelliklerini ve metotlarını devralan sınıftır. sadece bir sınıftan
  
 
  class Hayvan
@@ -189,6 +189,10 @@ namespace ConsoleApp11
     sealed: Override edilen bir metodun daha fazla geçersiz kılınmasını engeller.
     Polimorfizm, override ile güçlü bir şekilde desteklenir. Temel sınıf referansı ile türetilmiş sınıfların davranışlarını çağırmak mümkündür.
 
+    Constructorlar base class olamaz çünkü bir sınıfın üyeleri değiller. Türetilmiş sınıf temel sınıfının public ve protected fieldlarına ve metodlarına erişim sağlayabilir.
+    Eğer temel sınıfın parametre alan bir constructor metoddu varsa türetilmiş sınıfın da constructorı olmak zorunda ve bu constructor temel sınıfın constructorını çağırmak zorunda.
+    base keyword ile yapar bunu. 
+
 
 
 Polimorfizm Nedir?
@@ -291,10 +295,7 @@ Metot Geçersiz Kılma (Method Overriding) ile gerçekleştirilir.
 Bir base class referansı, türetilmiş sınıf nesnesine işaret ederek metot çağrısında bulunur.
 Hangi metotun çağrılacağı çalışma zamanında belirlenir.
 Çalışma zamanı maliyeti daha yüksektir, çünkü metot çağrısı çalışma zamanında çözülür.
-
-
-Metot Geçersiz Kılma (Method Overriding)
-Bir base class'taki metot, bir derived class'ta yeniden tanımlanabilir. Bu, virtual ve override anahtar kelimeleriyle yapılır.
+Metot Geçersiz Kılma (Method Overriding):Bir base class'taki metot, bir derived class'ta yeniden tanımlanabilir. Bu, virtual ve override anahtar kelimeleriyle yapılır.
 
 
 class Hayvan
@@ -352,14 +353,12 @@ Run-Time Polymorphism:
 Metot geçersiz kılma ile gerçekleştirilir.
 
 Polymorphism'in Gücü
-Kodun Yeniden Kullanılabilirliği:
 
+Kodun Yeniden Kullanılabilirliği:
 Temel sınıfta yazılan kod, türetilmiş sınıflar tarafından yeniden kullanılabilir.
 Dinamik Davranış:
-
 Çalışma zamanında nesnelerin farklı davranışlar sergilemesi sağlanır.
 Bakımı ve Genişletilebilirliği Kolaylaştırır:
-
 Yeni sınıflar eklemek veya davranışları değiştirmek daha kolaydır.
 
 Polimorfizm ve Abstract Sınıflar
@@ -414,13 +413,19 @@ Abstract sınıflar, polimorfizmin sık kullanılan bir versiyonudur.
 Temel sınıf referansı, türetilmiş sınıfın davranışını çağırabilir.
 Polimorfizm, daha esnek ve genişletilebilir bir kod yapısı sağlar.
 
+CompileTime Polymorphism birden fazla metod aynı isimle ama farklı parametrelerle - method overloading- earlybinding ya da static binding de denir
+RunTime Polymorphism Override& virtual keywords ve inheritance prensipleri - aynı isim aynı parametreler farklı görev - overriding late binding ya da dinamic binding de denir.
+virtual ile base classda metot, override la derived classda metot
 
+const sabit erişim belirleyicisi private public ile kullanılabilir.
 
 Abstract Sınıf Nedir?
 Tanım:
 
 Abstract sınıflar, kendilerinden bir nesne oluşturulamayan sınıflardır.
 Soyut sınıflar genellikle diğer sınıfların türetildiği bir temel yapı sağlar.
+Sınıfın uygulama detaylarını dış dünyadan soyutlamaya yarayan bir teknik. Örnek obje instance oluşturamazlar ve türetilmiş bir sınıf tarafından miras alınmak zorundadır.
+Abstract üyeler uygulaması olmayan ve türetilmiş sınıflarda uygulanmak zorunda olan metod, özellik ya da elementlerdir.
 
 Amaç:
 Ortak özellikler ve metotları tanımlamak.
@@ -544,6 +549,12 @@ Abstract sınıflar, kalıtımı zorunlu kılmak ve ortak bir yapı oluşturmak 
 
 Interface Nedir?
 Interface (arayüz), bir sınıfın uygulaması gereken bir sözleşme veya şablon sunar. Yani, bir interface içerisinde yalnızca imzaları (signature) tanımlanan metotlar, özellikler, olaylar ve indeksleyiciler bulunur, ama gövde (body) içermez.
+
+Bazı OOP dilleri bir child classın birden fazla parent classdan özellik ve davranış almasına izin verir. Buna multiple inheritance denir. Bu kullanım açısından karışıklığa yol 
+açabilir bu yüzden C# da izin verilmez. Alternatif olarak interface kavramı vardır. Diğer sınıfları yönlendirmek ve bazı özellikleri sınıfa taşımak için yaratılmış bir konsepttir.
+Abstract classlar gibi herhangi bir sınıfın üye ve metodlarından oluşan kolleksiyonlardır.Herhangi bir sınıf tarafından kullanılabilen bu metodlar interface in abstract metodları tanımlıysa override ile kullanılır.
+Abstract classların aksine interfacedeki tüm metodlar abstract olmalıdır. Interfacede method ve propertylerden başkakod bloğu yoktur. Interfacedeki tüm özellikler public varsayılır.
+Bir interfaceden başka bir interface yapısı türetebiliriz. Interface yapısı kullanarak obje oluşturamayız. Sınıflar interfacedeki tüm özellikleri uygulamak zorundadır.
 
 Özellikleri:
 Gövdesizdir:
