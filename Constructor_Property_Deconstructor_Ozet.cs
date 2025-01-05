@@ -63,7 +63,7 @@ namespace ConsoleApp10
     Constructor tür olarak bir metod ancak 
     Constructor; sınıf adıyla aynı olmalıdır, dönüş değeri hiçbir zaman olmaz( void bile), obje oluşturulurken otomatik çağırılır
     amacı obje başlatma işlemlerini yapmak.
-    Normal Metod; istediğimiz bir isiim verilebilir, herhangi bir değer dönebilir, kullanıcı tarafından manuel olarak çağrılır
+    Normal Metod; istediğimiz bir isim verilebilir, herhangi bir değer dönebilir, kullanıcı tarafından manuel olarak çağrılır
     amacı obje üzerinde işlem yapmak.
 
     Constructor Doğrudan Çağrılır Mı?
@@ -74,8 +74,8 @@ namespace ConsoleApp10
     Default (Varsayılan) Constructor : Eğer bir sınıfta constructor tanımlamazsanız derleyici sizin için parametresiz bir constructor sağlar. Ama parametreli tanımladıysak çağırırken değeri vermek gerekir.
     Overloading (Aşırı Yükleme): C# constructorlar aşırı yüklemeyi destekler; yani farklı parametre listeleriyle birden fazla constructor tanımlayabilirsiniz.
     Static Constructor: Eğer bir sınıfın statik üyeleri varsa( static variables/ properties), bu üyeleri başlatmak için bir static constructor tanımlayabilirsiniz.
-     Static Constructor, sınıf ilk kez kullanıldığında otomatik olarak çağırılır (örneğin bir statik üyeye erişildiğinde veya ilk nesne oluşturulduğunda). Constructordan önce çalışır.
-     Yalnızca bir kere çalışır; her nesne oluşturulduğunda yeniden çağrılmaz. Manuel olarak çağırmayız. Static veya olmayan bir sınıfta bulunabilir. Parametre alamaz.
+    Static Constructor, sınıf ilk kez kullanıldığında otomatik olarak çağırılır (örneğin bir statik üyeye erişildiğinde veya ilk nesne oluşturulduğunda). Constructordan önce çalışır.
+    Yalnızca bir kere çalışır; her nesne oluşturulduğunda yeniden çağrılmaz. Manuel olarak çağırmayız. Static veya olmayan bir sınıfta bulunabilir. Parametre alamaz.
 
 
     Properties ( Encapsulation*)
@@ -186,7 +186,7 @@ namespace ConsoleApp10
         {
             set { name = value; }
         }
-        public void ShowName() // Direkt console writeline da yazdıramazdık ancak fonksşyon yazıp atayınca çıktı alabildik.
+        public void ShowName() // Direkt console writeline da yazdıramazdık ancak fonksiyon yazıp atayınca çıktı alabildik.
         {
             Console.WriteLine($"Name: {name}");
             Console.ReadLine();
@@ -246,11 +246,11 @@ namespace ConsoleApp10
     Destructorlar, nesneler garbage collector tarafından toplanmadan önce çalışırtırılır. Dönüş tipi ve parametresi yoktur.
     Yıkıcılar ~ClassName şeklinde yazılır ve parametre almaz. 
     C#da destructor kullanımı genellikle ihtiyaç duyulmaz çünkü garbage collector nesneleri otomatik olarak temizler. Ancak unmanaged kaynaklala (örneğin dosya işlemleri, veritabanı bağlantıları) çalışıyorsanız
-    destructor kullanmka faydalı olabilir.
+    destructor kullanmak faydalı olabilir.
 
     Garbage Collector (GC)
     Garbage Collector, belirli bir nesnenin referans sayısı sıfır olduğunda, yani nesneye artık ihtiyaç duyulmadığında bu nesneyi otomatik olarak bellekten temizler. Bu işlem,C# ın yönetilen bellek sisteminin bir 
-    parçasıdırç GC, Dispose veya Finalize metodu gibi manuel bellek yönetimine ihtiyaç duymaz.
+    parçasıdır. GC, Dispose veya Finalize metodu gibi manuel bellek yönetimine ihtiyaç duymaz.
 
     Destructor ve GC İlişkisi
     Destructor, garbage collector nesneye olan tüm referansları sıfırladığında çağrılır.
@@ -263,7 +263,7 @@ namespace ConsoleApp10
         {
             //MyClass nesnesi oluşturuluyor
             MyClass obj = new MyClass();
-            obj = null; //nesneye hiçbir referans kalması, garbage collector nesneyi toplayacak
+            obj = null; //nesneye hiçbir referans kalmadı, garbage collector nesneyi toplayacak
             
             GC.Collect(); //Garbage Collector ı manuel olarak çalıştırmak
             //Program sonlanınca garbage collector finalizer metodunu çağıracak
@@ -293,11 +293,11 @@ namespace ConsoleApp10
 
     Destructor: Nesne garbage collector tarafından temizlenmeden önce, belirli bir temizlik işlemi yapmak için kullanılır. Ancak, manuel olarak çağrılamaz ve genellikle unmanaged kaynaklar için gereklidir.
     Garbage Collector: Nesneleri otomatik olarak bellekten siler. Yönetilen bellek yönetimi sağlar.
-    Dispose: Unmanaged kaynaklar ile çalışırken, kaynakları mauel olarak serbest bırakmak için kullanılır. using bloğu ile birlikte kullanıldığında, kaynaklar otomatik olarak temizlenir.
+    Dispose: Unmanaged kaynaklar ile çalışırken, kaynakları manuel olarak serbest bırakmak için kullanılır. using bloğu ile birlikte kullanıldığında, kaynaklar otomatik olarak temizlenir.
 
 
     this Keyword
-    Genellikle bir sınıfın üye üyelerine (özellikler, metodlar) erişmek için kullanılır. this, mevcut nesneye (vurrent object) referans verir. Bu, özellikle sınıfın üye isimleri ile parametre isimleri çakıştığında kullanışlıdır,
+    Genellikle bir sınıfın üye üyelerine (özellikler, metodlar) erişmek için kullanılır. this, mevcut nesneye (current object) referans verir. Bu, özellikle sınıfın üye isimleri ile parametre isimleri çakıştığında kullanışlıdır,
 
     Kullanım Alanları
     1_Nesnenin üye değişkenlerine erişim: Nesnenin özellikleri veya metodları ile çalışma yaparken, bu nesneyi belirtmek için kullanılır.
